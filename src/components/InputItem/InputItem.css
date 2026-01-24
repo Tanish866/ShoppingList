@@ -28,4 +28,5 @@
 
 .add-item-button:hover{
     box-shadow: none;
+    cursor: pointer;
 }

@@ -1,3 +1,5 @@
+import { showError, showSuccess } from '../../utils/ShowToast';
+import "react-toastify/dist/ReactToastify.css";
 import './InputItem.css';
 
 function InputItem(){
@@ -8,7 +10,9 @@ function InputItem(){
                 type="text"
                 placeholder="Add item..."
             />
-            <button className="add-item-button">
+            <button className="add-item-button"
+                onClick={() => showSuccess("Successfully added item")}
+            >
                 Add
             </button>
         </div>

@@ -20,3 +20,13 @@
     color: white;
     background-color: lightgray;
 }
+
+.add-item:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.remove-item:hover{
+    color: black;
+    cursor: pointer;
+}

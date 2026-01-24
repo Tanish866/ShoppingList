@@ -2,6 +2,7 @@
     width: 400px;
     display: flex;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .item-input{

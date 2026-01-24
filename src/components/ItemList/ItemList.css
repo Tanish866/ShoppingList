@@ -1,3 +1,22 @@
 .shopping-items-wrapper{
     min-width: 100%;
 }
+.item-list{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.change-quantity{
+    border-radius: 100%;
+    padding: 1rem;
+    font-size: small;
+}
+.add-item{
+    background-color: aquamarine;
+    color: white;
+}
+.remove-item{
+    color: white;
+    background-color: lightgray;
+}

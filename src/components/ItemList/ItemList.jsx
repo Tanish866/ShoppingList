@@ -39,5 +39,5 @@ function ItemList({ ShoppingItems, addQuantity, decQuantity }){
             }
         </div>
     )
-}
+}               
 export default React.memo(ItemList);

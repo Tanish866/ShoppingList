@@ -1,5 +1,5 @@
 import './Item.css';
-import React,{ memo } from 'react';
+import React from 'react';
 
 function Item({itemName, quantity}){
     return (

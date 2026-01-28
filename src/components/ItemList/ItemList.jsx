@@ -2,20 +2,25 @@ import Item from '../Item/Item';
 import './ItemList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import React, { useContext } from 'react';
 import { showError } from '../../utils/ShowToast';
+import { ShoppingDispatchContext, ShoppingItemContext } from '../../context/ShoppingContext';
 
 
-function ItemList({ ShoppingItems, addQuantity, decQuantity }){
+function ItemList(){
+
+    const ShoppingItems = useContext(ShoppingItemContext);
+    const dispatch = useContext(ShoppingDispatchContext);
+
     return (
         <div className="shopping-items-wrapper">
             {
                 ShoppingItems && ShoppingItems.map((item) => {
                     return (
                         <div key={item.id} className='item-list'>
-                            <div 
+                            <div
                                 className='change-quantity add-item'
-                                onClick={() => addQuantity(item.id)}
+                                onClick={() => dispatch({type: 'increment_item', itemId: item.id})}
                             >
                                 <FontAwesomeIcon icon={faPlus} />
                             </div>
@@ -27,7 +32,7 @@ function ItemList({ ShoppingItems, addQuantity, decQuantity }){
                                 className='change-quantity remove-item'
                                 onClick={() => {
                                     if(item.quantity == 1) showError(`${item.name} remove from the list`)
-                                    decQuantity(item.id)
+                                    dispatch({type: 'decrement_item', itemId: item.id})
                                 }}
                             >
                                 <FontAwesomeIcon icon={faMinus} />

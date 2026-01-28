@@ -5,6 +5,7 @@ import ItemList from "../ItemList/ItemList";
 import { ToastContainer } from 'react-toastify';
 import { useReducer } from "react";
 import ItemReducers from "../../reducers/ItemReducers";
+import { ShoppingItemContext, ShoppingDispatchContext } from "../../context/ShoppingContext";
 
 
 function ShoppingList(){
@@ -33,19 +34,22 @@ function ShoppingList(){
 
     return (
         <>
-            <Header/>
-            <ToastContainer/>
-            <div className="current-shopping-list">
-                <InputItem
-                    addItem={handleAddItem}
-                />
-                <ItemList
-                    ShoppingItems={shoppingItems}
-                    addQuantity={handleAddQuantity}
-                    decQuantity={handleDecQuantity}
-                />
-            </div>
-            
+            <ShoppingItemContext.Provider value={shoppingItems}>
+                <ShoppingDispatchContext.Provider value={dispatch}>
+                    <Header/>
+                    <ToastContainer/>
+                    <div className="current-shopping-list">
+                        <InputItem
+                            addItem={handleAddItem}
+                        />
+                        <ItemList
+                            ShoppingItems={shoppingItems}
+                            addQuantity={handleAddQuantity}
+                            decQuantity={handleDecQuantity}
+                        />
+                    </div>
+                </ShoppingDispatchContext.Provider>
+            </ShoppingItemContext.Provider>
         </>
     )
 }
